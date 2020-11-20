@@ -14,7 +14,7 @@ public class StringUtil {
         if(StringUtils.isBlank(str)){
             return "";
         }
-        String[] split = str.split(";");
+        String[] split = str.split("; ");
         String newStr = "";
         for (int i = 0; i < split.length; i++) {
             int count = length - split[i].length();

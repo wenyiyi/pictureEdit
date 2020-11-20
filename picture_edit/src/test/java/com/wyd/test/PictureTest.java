@@ -8,7 +8,7 @@ public class PictureTest {
 
     @Test
     public void test(){
-        String fileName = "/Users/vincentwen/Desktop/huizi.xlsx";
+        String fileName = "/Users/vincentwen/Desktop/test.xlsx";
         // 这里默认读取第一个sheet
         EasyExcel.read(fileName, User.class, new UserListener()).sheet().doRead();
     }
