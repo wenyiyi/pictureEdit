@@ -54,13 +54,8 @@ public class UserListener extends AnalysisEventListener<User> {
         // 自我介绍
         ImageUtils.pressText3(user.getSelfIntroduction(), "/Users/vincentwen/Desktop/test/test4.png", "/Users/vincentwen/Desktop/test/test5.png",
             "微软雅黑", Font.BOLD, Color.white, 25, 280, 580, 1f, 250);
-        String work = user.getWork();
-        if(StringUtils.isNotBlank(user.getWork())){
-            String[] split = user.getWork().split("：");
-            work = split[0];
-        }
         // 职业
-        ImageUtils.pressText3(StringUtil.handleString(work, 6), "/Users/vincentwen/Desktop/test/test5.png", "/Users/vincentwen/Desktop/test/test6.png",
+        ImageUtils.pressText3(StringUtil.handleString(user.getWork(), 6), "/Users/vincentwen/Desktop/test/test5.png", "/Users/vincentwen/Desktop/test/test6.png",
             "微软雅黑", Font.BOLD, color, 25, 187, 840, 1f, 150);
         // 我的标签
         ImageUtils.pressText3(StringUtil.handleString(user.getMyLabel(), 6), "/Users/vincentwen/Desktop/test/test6.png", "/Users/vincentwen/Desktop/test/test7.png",
