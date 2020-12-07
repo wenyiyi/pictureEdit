@@ -251,4 +251,36 @@ public class ImageUtils {
         }
         return length / 2;
     }
+    
+     /**
+     * 为图片添加图片水印
+     * @param watermarkUrl 水印图片
+     * @param source 原图
+     * @param output 制作完成的图片
+     * @return
+     * @throws IOException
+     */
+    public static String markImgMark(String watermarkUrl, String source, String output) throws IOException {
+        String result = "添加图片水印出错";
+        File file = new File(source);
+        Image img = ImageIO.read(file);
+        int width = img.getWidth(null);
+        int height = img.getHeight(null);
+        BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+
+        Graphics2D g = bi.createGraphics();
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g.drawImage(img.getScaledInstance(width, height, Image.SCALE_SMOOTH), 0, 0, null);
+        ImageIcon imgIcon = new ImageIcon(watermarkUrl);
+        Image con = imgIcon.getImage();
+        float clarity = 1;//透明度
+        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, clarity));
+        g.drawImage(con, 50, 20, null);//水印的位置
+        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));
+        g.dispose();
+        File sf = new File(output);
+        ImageIO.write(bi, "jpg", sf); // 保存图片
+        System.out.println("添加图片水印成功");
+        return result;
+    }
 }
