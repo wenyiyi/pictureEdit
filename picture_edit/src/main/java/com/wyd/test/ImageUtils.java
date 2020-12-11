@@ -271,15 +271,28 @@ public class ImageUtils {
         Graphics2D g = bi.createGraphics();
         g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         g.drawImage(img.getScaledInstance(width, height, Image.SCALE_SMOOTH), 0, 0, null);
-        ImageIcon imgIcon = new ImageIcon(watermarkUrl);
+
+        BufferedImage waterImg = null;
+        try {
+            waterImg = ImageIO.read(new File(watermarkUrl));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 设置水印图片的大小
+        Image newWaterImg = waterImg.getScaledInstance(100, 100,
+                Image.SCALE_SMOOTH);
+        ImageIcon imgIcon = new ImageIcon(newWaterImg);
         Image con = imgIcon.getImage();
-        float clarity = 1;//透明度
+        //透明度
+        float clarity = 1;
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, clarity));
-        g.drawImage(con, 50, 20, null);//水印的位置
+        //水印的位置
+        g.drawImage(con, 50, 20, null);
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));
         g.dispose();
         File sf = new File(output);
-        ImageIO.write(bi, "jpg", sf); // 保存图片
+        // 保存图片
+        ImageIO.write(bi, "jpg", sf);
         System.out.println("添加图片水印成功");
         return result;
     }
