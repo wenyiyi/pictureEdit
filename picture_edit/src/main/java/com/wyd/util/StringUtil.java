@@ -1,4 +1,4 @@
-package com.wyd.test;
+package com.wyd.util;
 
 import org.apache.commons.lang3.StringUtils;
 

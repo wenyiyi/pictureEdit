@@ -1,4 +1,4 @@
-package com.wyd.test;
+package com.wyd.util;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class ImageUtils {
     /**

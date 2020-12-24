@@ -1,4 +1,4 @@
-package com.wyd.test;
+package com.wyd.util;
 
 import java.awt.Font;
 import java.io.File;
@@ -24,7 +24,7 @@ public class Loadfont {
     }
 
     public static void main(String[] args) {
-        Font font = Loadfont.loadFont("/Users/vincentwen/Desktop/test.ttf", 18f);
+        Font font = Loadfont.loadFont("src/main/resources/test.ttf", 18f);
         System.out.println(font);
     }
 
