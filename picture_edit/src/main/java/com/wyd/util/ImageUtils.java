@@ -36,7 +36,7 @@ public class ImageUtils {
 
             g.drawImage(src, 0, 0, width, height, null);
             g.setColor(color);
-            Font font = Loadfont.loadFont("/Users/vincentwen/Desktop/test.ttf", fontSize);
+            Font font = Loadfont.loadFont("src/main/resources/test.ttf", fontSize);
             g.setFont(font);
             g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP,
                 alpha));
@@ -280,7 +280,7 @@ public class ImageUtils {
             e.printStackTrace();
         }
         // 设置水印图片的大小
-        Image newWaterImg = waterImg.getScaledInstance(100, 100,
+        Image newWaterImg = waterImg.getScaledInstance(141, 141,
                 Image.SCALE_SMOOTH);
         ImageIcon imgIcon = new ImageIcon(newWaterImg);
         Image con = imgIcon.getImage();
@@ -288,7 +288,7 @@ public class ImageUtils {
         float clarity = 1;
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, clarity));
         //水印的位置
-        g.drawImage(con, 50, 20, null);
+        g.drawImage(con, 550, 513, null);
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER));
         g.dispose();
         File sf = new File(output);
